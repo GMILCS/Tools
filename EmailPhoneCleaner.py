@@ -1,6 +1,9 @@
 import re
 
 def extract_email_or_phone(text):
+    # Clean up the input by stripping unwanted characters (like trailing colons and spaces)
+    text = text.strip().strip(':')
+
     # Regex pattern for email extraction, with or without angle brackets
     email_pattern = r'<?([a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)>?'
     
