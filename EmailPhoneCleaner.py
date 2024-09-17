@@ -36,11 +36,22 @@ def extract_email_or_phone(text):
     
     return "No email or phone number found."
 
-# Prompt user for input
-user_input = input("Please enter a line containing an email or phone number: ")
+def main():
+    while True:
+        # Prompt user for input
+        user_input = input("Please enter a line containing an email or phone number: ")
 
-# Clean and process the input
-result = extract_email_or_phone(user_input)
+        # Clean and process the input
+        result = extract_email_or_phone(user_input)
 
-# Output the result
-print(result)
+        # Output the result
+        print(result)
+
+        # Ask user if they want to start over or exit
+        restart = input("Do you want to submit another entry? (yes/no): ").strip().lower()
+        if restart != 'yes':
+            print("Exiting the program. Goodbye!")
+            break
+
+# Run the main loop
+main()
