@@ -22,19 +22,19 @@ def extract_email_or_phone(text):
             if phone_match:
                 # Format the phone number as 603*475*7681
                 formatted_phone = f"{phone_match.group(1)}*{phone_match.group(2)}*{phone_match.group(3)}"
-                return f"Phone number found: {formatted_phone}"
+                return formatted_phone
         else:
-            # Otherwise, treat it as a regular email
-            return f"Email found: {email_match.group(1)}"
+            # Otherwise, return the cleaned-up email
+            return email_match.group(1)
     
     # If no email or numeric email, try to find a phone number in the text
     phone_match = re.search(phone_pattern, text)
     if phone_match:
         # Format the phone number as 603*475*7681
         formatted_phone = f"{phone_match.group(1)}*{phone_match.group(2)}*{phone_match.group(3)}"
-        return f"Phone number found: {formatted_phone}"
+        return formatted_phone
     
-    return "No email or phone number found."
+    return "No valid email or phone number found."
 
 def main():
     while True:
@@ -44,7 +44,7 @@ def main():
         # Clean and process the input
         result = extract_email_or_phone(user_input)
 
-        # Output the result
+        # Output the cleaned result (no additional text)
         print(result)
 
         # Ask user if they want to start over or exit
