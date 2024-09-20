@@ -48,8 +48,8 @@ def main():
         print(result)
 
         # Ask user if they want to start over or exit
-        restart = input("Do you want to submit another entry? (yes/no): ").strip().lower()
-        if restart != 'yes':
+        restart = input("Do you want to submit another entry? (y/n): ").strip().lower()
+        if restart != 'y':
             print("Exiting the program. Goodbye!")
             break
 
